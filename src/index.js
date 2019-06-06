@@ -3,8 +3,44 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+// redux code
+import { Provider } from 'react-redux';
+import { applyMiddleware, compose, createStore } from 'redux'
+import rootReducer from "./redux/reducers";
+// Router Code
+import { Route, Switch } from 'react-router'
+import { createBrowserHistory } from 'history'
+import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
+import Pages from "./pages";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+console.log(Pages)
+
+
+const history = createBrowserHistory();
+const store = createStore(
+    rootReducer(history),
+    {}, // default state
+    compose(
+        applyMiddleware(
+            routerMiddleware(history),
+            // other middlewares (sagas)
+        )
+    )
+);
+
+
+
+ReactDOM.render(
+    <Provider store={store}>
+        <ConnectedRouter history={history}>
+            <Switch>
+                <Route exact path="/" render={() => (<Pages.LoginPage test={"asdf"}/>)} />
+                <Route render={() => (<Pages.IssuesPage />)} />
+            </Switch>
+        </ConnectedRouter>
+    </Provider>,
+    document.getElementById('root')
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
