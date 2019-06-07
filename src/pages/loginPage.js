@@ -25,17 +25,25 @@ class LoginPage extends Component {
         super(props);
 
         this.clickLogin = this.clickLogin.bind(this);
+        this.onApiKeyChange = this.onApiKeyChange.bind(this);
+        this.state = {
+            apiKey: '',
+        };
     }
 
     clickLogin() {
-        this.props.loginAttempt("63fb43f9f2e78980dcad553562f5e40d9946259d");
+        this.props.loginAttempt(this.state.apiKey);
+    }
+    
+    onApiKeyChange(e) {
+        this.setState({...this.state, apiKey: e.target.value});
     }
 
     render() {
         return (
         <div>
             <Header></Header>
-            <ApiKey></ApiKey>
+            <ApiKey changeWatcher={this.onApiKeyChange}></ApiKey>
             <ButtonGeneral onClick={this.clickLogin}></ButtonGeneral>
             <RepositoryList repositories={this.props.repositories}></RepositoryList>
         </div>

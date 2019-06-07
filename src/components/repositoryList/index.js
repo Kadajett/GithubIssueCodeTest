@@ -3,16 +3,20 @@ import { connect } from "react-redux";
 
 import RepositoryList from "./repositoryList.component";
 
+import {setSelectedRepository} from "../../redux/actions/ActionCreators"
+
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-       
-    }
+      setSelectedRepo: (repo) => {
+        dispatch(setSelectedRepository(repo));
+      },
+    };
 }
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        prop: state.prop
-    }
+        prop: state.prop,
+    };
 }
 
 class RepositoryListContainer extends Component {

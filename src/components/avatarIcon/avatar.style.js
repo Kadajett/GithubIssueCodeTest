@@ -6,4 +6,5 @@ export const AvatarWrapper = styled.div`
     background-image: url(${props => props.login.avatarUrl});
     background-repeat: no-repeat;
     background-size: 100%;
+    
 `;

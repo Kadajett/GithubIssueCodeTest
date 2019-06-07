@@ -18,7 +18,7 @@ const mapStateToProps = (state, ownProps) => {
 class ApiKeyEntryContainer extends Component {
   render() {
     return (
-      <ApiKeyEntry></ApiKeyEntry>
+      <ApiKeyEntry {...this.props}></ApiKeyEntry>
     )
   }
 }
