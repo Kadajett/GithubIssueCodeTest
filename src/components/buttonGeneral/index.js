@@ -18,7 +18,7 @@ const mapStateToProps = (state, ownProps) => {
 class ButtonGeneralContainer extends Component {
   render() {
     return (
-      <ButtonGeneral></ButtonGeneral>
+      <ButtonGeneral {...this.props}></ButtonGeneral>
     )
   }
 }

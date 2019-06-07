@@ -22,10 +22,11 @@ export function loginAttempt(apiKey) {
     };
 }
 
-export function loginSuccess(token) {
+export function loginSuccess(data) {
+    
     return {
         type: LOGIN_SUCCESS,
-        token
+        data
     };
 }
 

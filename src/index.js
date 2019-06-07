@@ -4,31 +4,72 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 // redux code
+import logger from "redux-logger";
 import { Provider } from 'react-redux';
 import { applyMiddleware, compose, createStore } from 'redux'
 import rootReducer from "./redux/reducers";
+import createSagaMiddleware from "redux-saga";
+
+import { watchLoginAttemptSaga } from "./redux/sagas";
+
 // Router Code
 import { Route, Switch } from 'react-router'
 import { createBrowserHistory } from 'history'
 import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
 import Pages from "./pages";
 
-console.log(Pages)
-
+const sagaMiddleware = createSagaMiddleware();
 
 const history = createBrowserHistory();
+
+
+export const loadState = () => {
+    try {
+        const serializedState = localStorage.getItem('state');
+        if (serializedState === null) {
+        return undefined;
+        }
+        return JSON.parse(serializedState);
+    } catch (err) {
+        return undefined;
+    }
+}; 
+
+export const saveState = (state) => {
+    try {
+        const serializedState = JSON.stringify(state);
+        localStorage.setItem('state', serializedState);
+    } catch {
+        // ignore write errors
+    }
+};
+
+const persistedState = loadState();
+
 const store = createStore(
     rootReducer(history),
-    {}, // default state
+    persistedState, // default state
     compose(
         applyMiddleware(
             routerMiddleware(history),
+            sagaMiddleware,
+            logger
             // other middlewares (sagas)
         )
-    )
+    ),
 );
 
+store.subscribe(() => {
+    saveState({
+      Login: store.getState().Login,
+      Repository: store.getState().Repository
+    });
+  });
 
+
+window.$S = store;
+
+sagaMiddleware.run(watchLoginAttemptSaga);
 
 ReactDOM.render(
     <Provider store={store}>

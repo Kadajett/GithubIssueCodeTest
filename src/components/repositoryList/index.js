@@ -18,7 +18,7 @@ const mapStateToProps = (state, ownProps) => {
 class RepositoryListContainer extends Component {
   render() {
     return (
-      <RepositoryList></RepositoryList>
+      <RepositoryList {...this.props}></RepositoryList>
     )
   }
 }

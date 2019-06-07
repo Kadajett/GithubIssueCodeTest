@@ -1,9 +1,19 @@
 import React from 'react'
 
-export default function RepositoryList() {
+import RepositoryItem from '../repositoryItem';
+
+export default function RepositoryList(props) {
+  function renderRepos(repos) {
+    if(repos) {
+      const {list} = repos;
+      if(!list || !Array.isArray(list)) return (<span>No repositories available</span>)
+      return list.map((repo) => <RepositoryItem info={repo}></RepositoryItem>);
+    }
+    
+  }
   return (
     <div>
-        repository list
+        {renderRepos(props.repositories)}
     </div>
   )
 }

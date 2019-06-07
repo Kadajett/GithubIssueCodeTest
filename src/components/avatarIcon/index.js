@@ -11,14 +11,14 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        prop: state.prop
+        login: state.Login
     }
 }
 
 class AvatarIconContainer extends Component {
   render() {
     return (
-      <AvatarIcon></AvatarIcon>
+      <AvatarIcon {...this.props}></AvatarIcon>
     )
   }
 }

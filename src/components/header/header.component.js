@@ -1,9 +1,13 @@
 import React from 'react'
 
+import { NavBar } from './header.style';
+import AvatarWrapper from "../avatarIcon";
+
 export default function Header() {
     return (
-        <div>
+        <NavBar>
             Header
-        </div>
+            <AvatarWrapper></AvatarWrapper>
+        </NavBar>
     )
 }
