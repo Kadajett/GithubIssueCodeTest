@@ -30,7 +30,14 @@ function getRepos() {
                                 id
                                 title
                                 createdAt
-                                assignees(last: 20) {
+                                comments(first:100) {
+                                    nodes {
+                                        author {
+                                            login
+                                        }
+                                    }
+                                }
+                                assignees(first: 20) {
                                   nodes {
                                     name
                                     id

@@ -62,7 +62,8 @@ const store = createStore(
 store.subscribe(() => {
     saveState({
       Login: store.getState().Login,
-      Repository: store.getState().Repository
+      Repository: store.getState().Repository,
+      Issue: store.getState().Issue,
     });
   });
 

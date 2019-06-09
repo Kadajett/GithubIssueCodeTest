@@ -4,7 +4,7 @@ import {device} from "../../utils/styles";
 export const RepositoryListScrollWrapper = styled.div`
     overflow: hidden;
     overflow-y: scroll;
-    height: 84vh;
+    height: 62vh;
     ::-webkit-scrollbar {
         width: 10px;
     }
@@ -30,12 +30,10 @@ export const RepositoryListWrapper = styled.div`
     @media ${device.mobileS} {
         display: ${props => props.showOnMobile ? "block" : "none"};
     }
-
     @media ${device.mobileL} {
         display: block;
-        width: 48vw;
-        float: left;
-        height: 95vh;
     }
+
+    
 
 `;

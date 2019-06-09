@@ -34,7 +34,7 @@ export default function IssueItem(props) {
             <IssueRightContent>
                 {getAssignee() && (
                     <IssueAssigneeWrapper>
-                        {/* {JSON.stringify()} */}
+                        {/* {JSON.stringify(getAssignee().avatarUrl)} */}
                         <AvatarIcon imgSrc={getAssignee().avatarUrl}></AvatarIcon>
                     </IssueAssigneeWrapper>
                 )

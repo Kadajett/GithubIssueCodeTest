@@ -1,5 +1,20 @@
 import styled from "styled-components";
-import {device} from "../../utils/styles";
+import {device, font} from "../../utils/styles";
+
+export const ControlWrapper = styled.div`
+    float: right;
+`;
+
+export const ListHeaderWrapper = styled.div`
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-right: 10px;
+`;
+
+export const ListHeader = styled.span`
+    display: inline-block;
+    font-size: ${font.large};
+`;
 
 export const IssueListScrollWrapper = styled.div`
     overflow-x: hidden;

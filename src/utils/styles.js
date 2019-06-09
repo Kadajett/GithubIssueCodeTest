@@ -35,3 +35,9 @@ export const minMediaQuery = (size) => {
 
     return false;
 }
+
+export const font = {
+    small: '12px',
+    medium: '16px',
+    large: '20px'
+};

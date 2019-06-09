@@ -6,6 +6,15 @@ export const LoginFlexWrapper = styled.div`
     max-height: 60vh !important;
 `;
 
+export const IssuesRepositoryWrapper = styled.div`
+    @media ${device.mobileL} {
+        display: block;
+        width: 48vw;
+        float: left;
+        height: 95vh;
+    }
+`;
+
 export const RepositoryReturnButton = styled.button`
 
     position: fixed;
