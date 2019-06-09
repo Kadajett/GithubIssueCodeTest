@@ -20,7 +20,8 @@
     "react-scripts": "3.0.1",
     "redux-logger": "^3.0.6",
     "redux-saga": "^1.0.2",
-    "styled-components": "^4.3.0"
+    "styled-components": "^4.3.0",
+    "querystringify": ">=2.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
