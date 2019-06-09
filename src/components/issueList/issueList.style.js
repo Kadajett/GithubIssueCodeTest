@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import {device} from "../../utils/styles";
 
-export const RepositoryListScrollWrapper = styled.div`
-    overflow: hidden;
+export const IssueListScrollWrapper = styled.div`
+    overflow-x: hidden;
     overflow-y: scroll;
     height: 84vh;
     ::-webkit-scrollbar {
@@ -25,17 +25,14 @@ export const RepositoryListScrollWrapper = styled.div`
     }
 `;
 
-export const RepositoryListWrapper = styled.div`
+export const IssueListWrapper = styled.div`
     padding-left: 10px;
-    @media ${device.mobileS} {
-        display: ${props => props.showOnMobile ? "block" : "none"};
+    @media ${device.mobileS}{
+        height: 50vh;
     }
-
     @media ${device.mobileL} {
-        display: block;
-        width: 48vw;
-        float: left;
+        width: 50vw;
+        float: right;
         height: 95vh;
     }
-
 `;

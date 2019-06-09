@@ -12,13 +12,12 @@ export default function RepositoryItem(props) {
     return days + " Days Ago";
   }
   return (
-    <RepositoryItemWrapper>
+    <RepositoryItemWrapper onClick={props.setSelectedRepo}>
       {props.info.name}
       <div className="createdAtWrapper">
         Created: <span>{getDaysSince(props.info.createdAt)}</span>
       </div>
-      <button onClick={props.setSelectedRepo}>Select Repo</button>
-      
+      {JSON.stringify(props.info.issues.edges.length)}
     </RepositoryItemWrapper>
   )
 }

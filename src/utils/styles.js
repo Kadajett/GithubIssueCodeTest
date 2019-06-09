@@ -1,5 +1,5 @@
 // import { styled } from 'styled-components';
-const size = {
+export const size = {
     mobileS: '320px',
     mobileM: '375px',
     mobileL: '425px',
@@ -18,3 +18,20 @@ export const device = {
     desktop: `(min-width: ${size.desktop})`,
     desktopL: `(min-width: ${size.desktop})`
   };
+
+
+function pxToInt(px) {
+    if(px.indexOf('px') < 0) return 0;
+
+    return parseInt(px.replace('px', ''));
+};
+export const minMediaQuery = (size) => {
+    let innerWidth = window.innerWidth;
+    let intSize = pxToInt(size);
+    if(!intSize) return false;
+
+    if(innerWidth >= intSize) return true;
+
+
+    return false;
+}

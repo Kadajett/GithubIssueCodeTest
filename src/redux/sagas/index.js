@@ -21,10 +21,28 @@ function getRepos() {
             viewer {
                 repositories( last:100) {
                     nodes {
-                           name
-                         id
-                         createdAt
+                        name
+                        id
+                        createdAt
+                        issues(last:100) {
+                            edges {
+                              node {
+                                id
+                                title
+                                createdAt
+                                assignees(last: 20) {
+                                  nodes {
+                                    name
+                                    id
+                                    avatarUrl
+                                  }
+                                }
+                              }
+                            }
+                        }
+                        openGraphImageUrl
                     }
+                    
                   }
             }
           }

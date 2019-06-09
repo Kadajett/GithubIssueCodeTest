@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Components from "../components/index";
+import { LoginFlexWrapper } from "./page.style";
 import {loginAttempt} from "../redux/actions/ActionCreators";
 import { connect } from 'react-redux';
 const {ApiKey, ButtonGeneral, RepositoryList, Header} = Components;
@@ -41,12 +42,12 @@ class LoginPage extends Component {
 
     render() {
         return (
-        <div>
+        <LoginFlexWrapper>
             <Header></Header>
             <ApiKey changeWatcher={this.onApiKeyChange}></ApiKey>
             <ButtonGeneral onClick={this.clickLogin}></ButtonGeneral>
-            <RepositoryList repositories={this.props.repositories}></RepositoryList>
-        </div>
+            <RepositoryList showOnMobile={true} repositories={this.props.repositories}></RepositoryList>
+        </LoginFlexWrapper>
         );
     }
 }

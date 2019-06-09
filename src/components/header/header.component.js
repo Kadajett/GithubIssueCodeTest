@@ -2,10 +2,9 @@ import React from 'react'
 
 import { NavBar } from './header.style';
 import AvatarWrapper from "../avatarIcon";
-import history from "history";
 import {
     withRouter
-  } from 'react-router-dom'
+  } from 'react-router-dom';
 
 export default withRouter(function Header(props) {
     const routeToApiKeyScreen = () => {

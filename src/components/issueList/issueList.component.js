@@ -1,6 +1,7 @@
 import React from 'react'
 
 import IssueItem from '../issueItem/issueItem.component';
+import {IssueListWrapper, IssueListScrollWrapper} from "./issueList.style";
 
 export default function IssueList(props) {
 
@@ -12,8 +13,11 @@ export default function IssueList(props) {
     };
 
     return (
-        <div>
-            {getIssueList(props.issues)}
-        </div>
+        <IssueListWrapper>
+            <h2>Issue List</h2>
+            <IssueListScrollWrapper>
+                {getIssueList(props.issues)}
+            </IssueListScrollWrapper>
+        </IssueListWrapper>
     )
 }

@@ -1,6 +1,9 @@
 import React from 'react'
 import {connect} from "react-redux";
 import Components from "../components";
+import IssueList from '../components/issueList/issueList.component';
+
+import { RepositoryReturnButton } from "./page.style";
 
 const { RepositoryList, Header} = Components;
 
@@ -22,7 +25,12 @@ function IssuesPage(props) {
     return (
         <div>
             <Header></Header>
-            <RepositoryList repositories={props.repositories}></RepositoryList>
+            
+            {props.repositories.repoID && 
+                <IssueList issues={props.repositories.repoID.issues.edges}></IssueList>
+            }
+            <RepositoryList showOnMobile={false} repositories={props.repositories}></RepositoryList>
+            <RepositoryReturnButton>Repository List</RepositoryReturnButton>
         </div>
     )
 }
