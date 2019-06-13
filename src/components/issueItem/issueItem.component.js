@@ -21,6 +21,10 @@ export default function IssueItem(props) {
         return props.issue.node.assignees.nodes[0];
     }
 
+    const getCommentCount = () => {
+        return props.issue.node.comments.nodes.length;
+    };
+
     return (
         <IssueWrapper>
             <IssueLeftContent>
@@ -39,6 +43,7 @@ export default function IssueItem(props) {
                     </IssueAssigneeWrapper>
                 )
                 }
+                Comments: {getCommentCount()}
             </IssueRightContent>
         </IssueWrapper>
     )

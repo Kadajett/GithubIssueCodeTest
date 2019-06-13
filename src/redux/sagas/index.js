@@ -24,13 +24,13 @@ function getRepos() {
                         name
                         id
                         createdAt
-                        issues(last:100) {
+                        issues(last:30) {
                             edges {
                               node {
                                 id
                                 title
                                 createdAt
-                                comments(first:100) {
+                                comments(first:50) {
                                     nodes {
                                         author {
                                             login

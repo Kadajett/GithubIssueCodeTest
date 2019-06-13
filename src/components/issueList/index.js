@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 
 import IssueList from "./issueList.component";
-import {setIssueOrder} from "../../redux/actions/ActionCreators";
+import {setIssueOrder, getRepositoryAttempt} from "../../redux/actions/ActionCreators";
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
        setIssueOrder: (orderBy) => {
         dispatch(setIssueOrder(orderBy));
+       },
+       refreshRepos: () => {
+         dispatch(getRepositoryAttempt());
        }
     }
 }

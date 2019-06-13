@@ -23,14 +23,13 @@ export default function IssueList(props) {
     ];
     let defaultOption = null;
     useEffect(() => {
+        props.refreshRepos();
+    }, []);
+
+    useEffect(() => {
         // defaultOption = props.order;
         // // debugger;
         
-        // sortIssues(props.issues, props.order);
-    }, []);
-
-
-    useEffect(() => {
         sortIssues(props.issues, props.order);
     }, [props.order]);
 
@@ -84,9 +83,9 @@ export default function IssueList(props) {
     }
     function sortByMostCommented(issues) {
         return issues.sort((a, b) => {
-            let aDiff = moment().diff(a.node.createdAt, 'hours');
-            let bDiff = moment().diff(b.node.createdAt, 'hours');
-            return aDiff - bDiff;
+            let aLength = a.node.comments.nodes.length;
+            let bLength = b.node.comments.nodes.length;
+            return bLength - aLength;
         });
     }
     function sortByLeastCommented(issues) {
